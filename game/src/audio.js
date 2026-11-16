@@ -13,7 +13,7 @@ export class SoundKeeper {
       if (this.ctx.state === 'suspended') this.ctx.resume();
       return true;
     }
-    const AC = window.AudioContext || window.webkitAudioContext;
+    const AC = globalThis.AudioContext || globalThis.webkitAudioContext;
     if (!AC) return false;
     this.ctx = new AC();
     return true;
